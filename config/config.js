@@ -15,8 +15,9 @@ module.exports = {
     "host": PG_HOST,
     "dialect": "mysql",
     "port": 8889,
-    define: {
-      timestamps: false
+    "logging": false,
+    "define": {
+      "timestamps": false
   }
   },
   "test": {
