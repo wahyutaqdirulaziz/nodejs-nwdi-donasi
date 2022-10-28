@@ -1,11 +1,9 @@
-require('dotenv').config();
-const {
-  PG_HOST,
-  PG_USER,
-  PG_PASS,
-  PG_DB_NAME,
-  PG_PORT
-} = process.env;
+
+PG_HOST="localhost"
+PG_PORT=8889
+PG_USER="root"
+PG_PASS="root"
+PG_DB_NAME="donasi_nwdi1"
 
 module.exports = {
   "development": {
@@ -14,7 +12,7 @@ module.exports = {
     "database": PG_DB_NAME,
     "host": PG_HOST,
     "dialect": "mysql",
-    "port": 8889,
+    "port": PG_PORT,
     "logging": false,
     "define": {
       "timestamps": false

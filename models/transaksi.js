@@ -14,6 +14,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      va_nomor: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      keterangan: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       jumlah: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -22,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      unpayment: {
+      status: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -40,7 +48,16 @@ module.exports = (sequelize, DataTypes) => {
     }, 
     
     {
-      tableName: 'transaksis'
+      tableName: 'transaksi'
     })
+
+    Transaksi.associate = models => {
+      Transaksi.belongsTo(models.Donasi, {
+        foreignKey: 'id_donasi'
+      })
+      Transaksi.belongsTo(models.User, {
+        foreignKey: 'users_id'
+      })
+    }
     return Transaksi;
   }
